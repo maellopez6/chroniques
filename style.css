@@ -1,3 +1,98 @@
+/* ----- RESET DE BASE ----- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ----- STRUCTURE GÉNÉRALE ----- */
 body {
-    color: blue;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Canela', serif;
+  color: white;
+}
+
+/* ----- VIDÉO DE FOND ----- */
+.background-video {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+.background-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ----- VOILE NOIR TRANSLUCIDE ----- */
+.background-video::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+  z-index: 2;
+}
+
+/* ----- CONTENU POÉTIQUE ----- */
+.overlay {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  padding: 0 20px;
+  opacity: 0;
+  animation: fadeIn 3s ease forwards;
+}
+
+.overlay h1 {
+  font-size: 2.5em;
+  max-width: 700px;
+  margin-bottom: 40px;
+  line-height: 1.3;
+  animation: fadeText 3s forwards 0.5s;
+  opacity: 0;
+}
+
+/* ----- BOUTON ----- */
+.enter-button {
+  text-decoration: none;
+  color: white;
+  border: 1px solid white;
+  padding: 14px 30px;
+  border-radius: 30px;
+  font-size: 1.1em;
+  transition: 0.4s ease;
+  opacity: 0;
+  animation: fadeButton 3s forwards 2s;
+}
+.enter-button:hover {
+  background: rgba(255,255,255,0.2);
+  transform: scale(1.05);
+}
+
+/* ----- EFFET DE FONDU À L’OUVERTURE ----- */
+@keyframes fadeIn {
+  from { opacity: 0; } to { opacity: 1; }
+}
+@keyframes fadeText {
+  to { opacity: 1; }
+}
+@keyframes fadeButton {
+  to { opacity: 1; }
+}
+
+/* ----- FONDU DE SORTIE ----- */
+body.fade-out {
+  opacity: 0;
+  transition: opacity 1.5s ease;
 }

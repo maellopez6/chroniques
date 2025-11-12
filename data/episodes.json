@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Rêve de lumière",
+    "thumb": "ep1.jpg",
+    "quote": "Une brume danse sur le seuil du souvenir."
+  },
+  {
+    "id": 2,
+    "title": "Fragments d’écho",
+    "thumb": "ep2.jpg",
+    "quote": "Le temps respire entre deux silences."
+  },
+  {
+    "id": 3,
+    "title": "Le murmure de l’eau",
+    "thumb": "ep3.jpg",
+    "quote": "Chaque reflet garde une mémoire du ciel."
+  }
+]
