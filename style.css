@@ -11,6 +11,8 @@ body {
   overflow: hidden;
   font-family: 'Canela', serif;
   color: white;
+  padding-top: 80px;
+  z-index: 2;
 }
 
 /* ----- VIDÉO DE FOND ----- */
@@ -20,7 +22,7 @@ body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  z-index: 1;
+  z-index: -5;
 }
 .background-video video {
   width: 100%;
