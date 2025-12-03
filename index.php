@@ -20,6 +20,6 @@
         <a href="episodes.php" class="enter-button">Entrer dans les chroniques</a>
     </div>
 
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

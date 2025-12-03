@@ -10,7 +10,7 @@ $currentPage = basename($_SERVER['PHP_SELF']); // e.g. "episodes.php"
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Le présent du rêve – Les Chroniques d’un Rêveur</title>
+  <title>Espace de transmission – Les Chroniques d’un Rêveur</title>
   <link rel="stylesheet" href="episodes.css?v=1.0">
 </head>
 
@@ -31,7 +31,7 @@ $currentPage = basename($_SERVER['PHP_SELF']); // e.g. "episodes.php"
   <!-- Le header principal -->
   <header class="header">
     <a href="index.php" class="back-link">← Retour au seuil</a>
-    <h1>Le présent du rêve</h1>
+    <h1>Espace de transmission</h1>
   </header>
 
   <main class="episodes-grid">

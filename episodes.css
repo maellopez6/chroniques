@@ -1,100 +1,24 @@
-/* ================================
-   PAGE ÉPISODES
-================================ */
-.page-episodes {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Satoshi', sans-serif;
   background: radial-gradient(ellipse at center, #0b0b0b 0%, #050505 100%);
-  color: white;
-  min-height: 100vh;
-  animation: fadeIn 2s ease forwards;
-  /* padding-top -> laisse de l'espace pour la navbar ; ajuster si nécessaire */
-  padding-top: 84px;
-}
-
-/* header principal */
-.header {
-  text-align: center;
-  padding: 20px 20px 40px; /* réduit la marge puisque navbar est fixe */
-}
-
-.header h1 {
-  font-family: 'Canela', serif;
-  font-size: 2.2em;
-  margin-top: 10px;
   color: #fdfcfc;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  padding-top: 90px; /* espace pour menu fixe */
+  animation: fadeIn 2s ease forwards;
 }
 
-.back-link {
-  text-decoration: none;
-  color: rgba(255,255,255,0.7);
-  font-size: 1em;
-  transition: 0.3s;
-}
-.back-link:hover { color: white; }
-
-/* --- Grille d’épisodes --- */
-.episodes-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  padding: 20px 40px 80px; /* bas plus grand pour espace */
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.episode-card {
-  position: relative;
-  overflow: hidden;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: transform 0.6s ease;
-}
-.episode-card:hover { transform: scale(1.03); }
-
-/* --- Miniatures --- */
-.episode-thumb {
-  width: 100%;
-  padding-top: 65%;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  filter: brightness(0.75);
-  transition: filter 0.5s ease;
-}
-.episode-card:hover .episode-thumb { filter: brightness(1); }
-
-/* --- Overlay poétique --- */
-.overlay-episode {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0,0,0,0.5);
-  opacity: 0;
-  transition: opacity 0.6s ease;
-  text-align: center;
-  padding: 20px;
-}
-.episode-card:hover .overlay-episode { opacity: 1; }
-
-.overlay-episode h2 {
-  font-family: 'Canela', serif;
-  font-size: 1.5em;
-  margin-bottom: 10px;
-  color: #fff;
-}
-.overlay-episode p {
-  font-style: italic;
-  font-size: 0.95em;
-  color: #dcdcdc;
-  max-width: 90%;
-}
-
-/* ================================
+/* ===========================
    MENU PRINCIPAL
-================================ */
+=========================== */
 .main-menu {
     position: fixed;
     top: 0;
@@ -110,8 +34,6 @@
     display: flex;
     gap: 40px;
     list-style: none;
-    margin: 0;
-    padding: 0;
 }
 
 .main-menu a {
@@ -125,10 +47,292 @@
     border-bottom: 1px solid transparent;
 }
 
-.main-menu a:hover {
-    color: white;
-    border-bottom: 1px solid rgba(255,255,255,0.6);
+.main-menu a:hover,
+.main-menu a.active {
+    color: #ffd966;
+    border-bottom: 1px solid #ffd966;
 }
 
+/* ===========================
+   HEADER
+=========================== */
+.header {
+  text-align: center;
+  padding: 20px 20px 40px;
+  animation: fadeIn 2s ease forwards;
+}
+.header h1 {
+  font-family: 'Canela', serif;
+  font-size: 2.4em;
+  color: #fdfcfc;
+  line-height: 1.2em;
+  letter-spacing: 1px;
+}
+.back-link {
+  text-decoration: none;
+  color: rgba(255,255,255,0.7);
+  font-size: 1em;
+  transition: 0.3s;
+}
+.back-link:hover { color: #ffd966; }
 
+/* ===========================
+   GRILLE D'ÉPISODES
+=========================== */
+.episodes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  padding: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
 
+/* ===========================
+   CARTES D'ÉPISODES
+=========================== */
+.episode-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: transform 0.6s ease, box-shadow 0.5s ease;
+  transform: translateY(0);
+  animation: floatCard 3s ease-in-out infinite alternate;
+}
+
+.episode-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 50px rgba(255,255,255,0.05);
+}
+
+/* Miniatures */
+.episode-thumb {
+  width: 100%;
+  padding-top: 65%;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.75);
+  transition: filter 0.5s ease, transform 0.6s ease;
+}
+.episode-card:hover .episode-thumb {
+  filter: brightness(1);
+  transform: scale(1.03);
+}
+
+/* Overlay poétique */
+.overlay-episode {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.35);
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  text-align: center;
+  padding: 20px;
+}
+.episode-card:hover .overlay-episode {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.overlay-episode h2 {
+  font-family: 'Canela', serif;
+  font-size: 1.6em;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.overlay-episode p {
+  font-style: italic;
+  font-size: 1em;
+  color: #dcdcdc;
+  max-width: 85%;
+  line-height: 1.4em;
+}
+
+/* ===========================
+   ANIMATIONS
+=========================== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* flottement subtil des cartes */
+@keyframes floatCard {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+  100% { transform: translateY(0px); }
+}
+
+/* ===========================
+   MOBILE / TOUCH
+=========================== */
+@media (hover: none) {
+  .episode-card:hover .overlay-episode {
+    opacity: 1;
+  }
+}
+
+.page-episodes {
+  transition: background 1.2s ease, color 1s ease;
+  position: relative;
+  --accent-gold: #ffd966;
+}
+
+/* --- AUBE (dawn) --- */
+.page-episodes.time-dawn {
+  background: linear-gradient(180deg, #d1e295 0%, #719adb 35%, #3979d4 100%);
+  color: #1b1b1b;
+}
+
+/* petit voile rosé */
+.page-episodes.time-dawn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 10% 20%, rgba(255,218,185,0.06), transparent 15%),
+              radial-gradient(circle at 80% 80%, rgba(255,235,220,0.03), transparent 15%);
+  mix-blend-mode: screen;
+}
+
+/* --- JOUR (day) --- */
+.page-episodes.time-day {
+  background: linear-gradient(180deg, #9ecbef 0%, #59a1e9 40%, #2369ed 100%);
+  color: #0b0b0b;
+}
+
+/* --- CRÉPUSCULE (dusk) --- */
+.page-episodes.time-dusk {
+  background: linear-gradient(180deg, #e346e399 0%, #dbc563c1 40%, #3769a8a2 100%);
+  color: #010101;
+}
+
+.page-episodes.time-dusk::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.35) 70%);
+  mix-blend-mode: multiply;
+}
+
+/* --- NUIT (night) --- */
+.page-episodes.time-night {
+  background: radial-gradient(ellipse at top, #071028 0%, #02040a 60%, #010103 100%);
+  color: #eaf6ff;
+}
+
+/* étoiles discrètes via pattern radial */
+.page-episodes.time-night::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, rgba(134, 217, 230, 0.9) 0%, transparent 50%),
+    radial-gradient(1px 1px at 30% 40%, rgba(82, 160, 184, 0.6) 0%, transparent 50%),
+    radial-gradient(1px 1px at 50% 10%, rgba(48, 138, 171, 0.8) 0%, transparent 50%),
+    radial-gradient(1px 1px at 80% 30%, rgba(18, 101, 168, 0.5) 0%, transparent 50%),
+    radial-gradient(1px 1px at 70% 80%, rgba(8, 10, 124, 0.7) 0%, transparent 50%);
+  background-size: 100% 100%;
+  opacity: 0.25;
+  mix-blend-mode: screen;
+}
+
+/* Ajuster micro-contrastes des cartes selon l'heure */
+.page-episodes.time-day .episode-thumb { filter: brightness(0.95); }
+.page-episodes.time-dawn .episode-thumb { filter: brightness(0.9) saturate(1.02); }
+.page-episodes.time-dusk .episode-thumb { filter: brightness(0.8) saturate(0.95); }
+.page-episodes.time-night .episode-thumb { filter: brightness(0.7) contrast(0.95); }
+
+/* Mettre accents subtils dorés sur les titres/menu en fonction de la classe */
+.page-episodes.time-dawn .main-menu a.active,
+.page-episodes.time-day .main-menu a.active,
+.page-episodes.time-dusk .main-menu a.active,
+.page-episodes.time-night .main-menu a.active {
+  color: var(--accent-gold);
+  border-bottom-color: rgba(255,217,102,0.85);
+}
+
+/* transition douce pour pseudo-éléments */
+.page-episodes::before {
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.poetic-element {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    opacity: 0.85;
+    transition: opacity 0.3s ease, transform 0.4s ease;
+    animation: float 6s ease-in-out infinite;
+    z-index: 30;
+}
+
+.poetic-element:hover {
+    opacity: 1;
+    transform: scale(1.1) rotate(3deg);
+}
+
+.star {
+    filter: drop-shadow(0 0 4px #fff) drop-shadow(0 0 8px #ffd966);
+    animation: float 5s ease-in-out infinite, twinkle 2s infinite alternate;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.7; }
+    50% { opacity: 1; }
+    100% { opacity: 0.7; }
+}
+
+.door {
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
+    animation: float 6s ease-in-out infinite alternate;
+}
+
+.mirror {
+    filter: drop-shadow(0 0 3px rgba(255,255,255,0.3));
+    animation: float 5s ease-in-out infinite alternate, shimmer 3s infinite linear;
+}
+
+@keyframes shimmer {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-3px) rotate(1deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* Boîte des phrases */
+.poetic-phrase {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 18px 28px;
+    font-family: "Garamond", serif;
+    background: rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(6px);
+    color: #ffd966;
+    font-size: 1.1em;
+    border-radius: 18px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease;
+}
+
+.poetic-phrase.show {
+    opacity: 1;
+}
