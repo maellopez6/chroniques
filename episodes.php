@@ -5,12 +5,10 @@ $episodes = json_decode(file_get_contents('data/episodes.json'), true);
 // Pour gérer l'onglet actif dans la navbar
 $currentPage = basename($_SERVER['PHP_SELF']); // e.g. "episodes.php"
 
-// Temps serveur (Europe/Paris) -> classe initiale
-// ----------------------
+// Temps serveur (Europe/Paris)
 date_default_timezone_set('Europe/Paris');
-$hour = (int)date('G'); // 0-23
+$hour = (int)date('G');
 
-// Permet forcer via ?time=day|dawn|dusk|night pour tests
 $forced = isset($_GET['time']) ? $_GET['time'] : null;
 $timeClass = 'time-day';
 
@@ -20,15 +18,10 @@ if ($forced) {
         $timeClass = 'time-' . $forced;
     }
 } else {
-    if ($hour >= 6 && $hour < 9) {         // aube / dawn
-        $timeClass = 'time-dawn';
-    } elseif ($hour >= 9 && $hour < 18) {  // journée
-        $timeClass = 'time-day';
-    } elseif ($hour >= 18 && $hour < 21) { // crépuscule / dusk
-        $timeClass = 'time-dusk';
-    } else {                               // nuit
-        $timeClass = 'time-night';
-    }
+    if ($hour >= 6 && $hour < 9) $timeClass = 'time-dawn';
+    elseif ($hour >= 9 && $hour < 18) $timeClass = 'time-day';
+    elseif ($hour >= 18 && $hour < 21) $timeClass = 'time-dusk';
+    else $timeClass = 'time-night';
 }
 ?>
 <!DOCTYPE html>
@@ -43,12 +36,10 @@ if ($forced) {
 <body class="page-episodes <?php echo $timeClass; ?>">
 
 <nav class="main-menu">
-
   <!-- LOGO -->
   <a href="index.php" class="site-logo">
     <img src="images/logo.png" alt="Les Chroniques d’un Rêveur">
   </a>
-
   <!-- MENU -->
   <ul>
     <li><a href="index.php">Accueil</a></li>
@@ -58,39 +49,39 @@ if ($forced) {
     <li><a href="voix.php">Voix du rêveur</a></li>
     <li><a href="about.php">À propos</a></li>
   </ul>
-
 </nav>
 
-  <!-- Le header principal -->
-  <header class="header">
-    <a href="index.php" class="back-link">← Retour au seuil</a>
-    <h1>Les fragments du rêve</h1>
-  </header>
+<header class="header">
+  <a href="index.php" class="back-link">← Retour au seuil</a>
+  <h1>Les fragments du rêve</h1>
+</header>
 
-  <main class="episodes-grid">
-    <?php foreach ($episodes as $ep): ?>
-      <div class="episode-card">
-        <div class="episode-thumb" style="background-image:url('images/<?= htmlspecialchars($ep['thumb']) ?>')">
-          <div class="overlay-episode">
-            <h2><?= htmlspecialchars($ep['title']) ?></h2>
-            <p><?= htmlspecialchars($ep['quote']) ?></p>
-          </div>
-        </div>
+<main class="episodes-grid">
+  <?php foreach ($episodes as $ep): ?>
+    <div class="episode-card">
 
-        <!-- Vidéo test intégrée -->
-        <video class="episode-video" width="100%" preload="metadata" muted loop>
+      <div class="episode-thumb" style="background-image:url('images/<?= htmlspecialchars($ep['thumb']) ?>')">
+        
+        <!-- Vidéo intégrée -->
+        <video class="episode-video" preload="metadata" muted loop>
           <source src="videos/test.mp4" type="video/mp4">
           Votre navigateur ne supporte pas la vidéo.
         </video>
 
-      </div>
-    <?php endforeach; ?>
-  </main>
+        <div class="overlay-episode">
+          <h2><?= htmlspecialchars($ep['title']) ?></h2>
+          <p><?= htmlspecialchars($ep['quote']) ?></p>
+        </div>
 
-<!-- Boîte pour afficher les phrases -->
+      </div>
+    </div>
+  <?php endforeach; ?>
+</main>
+
+<!-- Boîte pour phrases poétiques -->
 <div id="phraseBox" class="poetic-phrase"></div>
 
-<!-- Étoiles réalistes -->
+<!-- Poetic SVG elements -->
 <svg class="poetic-element star" data-type="star" width="40" height="40" viewBox="0 0 24 24">
   <polygon points="12 2 15 10 23 10 17 14 19 22 12 17 5 22 7 14 1 10 9 10" fill="url(#starGradient)" stroke="gold" stroke-width="1"/>
   <defs>
@@ -121,15 +112,4 @@ if ($forced) {
       <stop offset="100%" stop-color="#99d1ff" stop-opacity="0.1"/>
     </linearGradient>
   </defs>
-  <ellipse cx="12" cy="15" rx="10" ry="14" fill="url(#mirrorGradient)" stroke="#fff" stroke-width="1"/>
-  <line x1="5" y1="5" x2="19" y2="25" stroke="#fff" stroke-width="0.5" opacity="0.3"/>
-</svg>
-
-<!-- Zone d'affichage des phrases -->
-<div id="poeticPhrase" class="poetic-phrase"></div>
-
-<script src="script.js"></script>
-
-<!-- Lecture automatique au survol -->
-<script>
-document.querySelectorAll('.episode-video')
+  <ellipse cx="12" cy="15" rx="10" ry="14" fill="url(#mirrorGradient)" stroke="#fff"

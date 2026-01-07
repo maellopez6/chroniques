@@ -368,3 +368,29 @@ body {
 .page-episodes.time-day .site-logo img {
   filter: drop-shadow(0 0 4px rgba(255,220,150,0.25));
 }
+
+.episode-thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.episode-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 1; /* derrière le texte overlay */
+}
+
+.episode-thumb:hover .episode-video {
+  opacity: 1; /* devient visible au survol */
+}
+
+.overlay-episode {
+  position: relative;
+  z-index: 2; /* au-dessus de la vidéo */
+}
