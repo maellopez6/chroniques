@@ -61,7 +61,6 @@ if ($forced) {
 
 </nav>
 
-
   <!-- Le header principal -->
   <header class="header">
     <a href="index.php" class="back-link">← Retour au seuil</a>
@@ -77,9 +76,17 @@ if ($forced) {
             <p><?= htmlspecialchars($ep['quote']) ?></p>
           </div>
         </div>
+
+        <!-- Vidéo test intégrée -->
+        <video class="episode-video" width="100%" preload="metadata" muted loop>
+          <source src="videos/test.mp4" type="video/mp4">
+          Votre navigateur ne supporte pas la vidéo.
+        </video>
+
       </div>
     <?php endforeach; ?>
   </main>
+
 <!-- Boîte pour afficher les phrases -->
 <div id="phraseBox" class="poetic-phrase"></div>
 
@@ -121,9 +128,8 @@ if ($forced) {
 <!-- Zone d'affichage des phrases -->
 <div id="poeticPhrase" class="poetic-phrase"></div>
 
+<script src="script.js"></script>
 
-  <script src="script.js"></script>
-
-</body>
-</html>
-
+<!-- Lecture automatique au survol -->
+<script>
+document.querySelectorAll('.episode-video')
