@@ -60,9 +60,8 @@ if ($forced) {
   <?php foreach ($episodes as $ep): ?>
     <div class="episode-card">
 
-      <div class="episode-thumb" style="background-image:url('images/<?= htmlspecialchars($ep['thumb']) ?>')">
-        
-        <!-- Vidéo intégrée -->
+      <!-- Conteneur vidéo -->
+      <div class="episode-video-container">
         <video class="episode-video" preload="metadata" muted loop>
           <source src="videos/test.mp4" type="video/mp4">
           Votre navigateur ne supporte pas la vidéo.
@@ -72,11 +71,20 @@ if ($forced) {
           <h2><?= htmlspecialchars($ep['title']) ?></h2>
           <p><?= htmlspecialchars($ep['quote']) ?></p>
         </div>
-
       </div>
+
     </div>
   <?php endforeach; ?>
 </main>
+
+<script>
+document.querySelectorAll('.episode-video-container').forEach(container => {
+    const video = container.querySelector('.episode-video');
+    container.addEventListener('mouseenter', () => { video.play(); });
+    container.addEventListener('mouseleave', () => { video.pause(); video.currentTime = 0; });
+});
+</script>
+
 
 <!-- Boîte pour phrases poétiques -->
 <div id="phraseBox" class="poetic-phrase"></div>
