@@ -336,3 +336,35 @@ body {
 .poetic-phrase.show {
     opacity: 1;
 }
+
+/* ===========================
+   LOGO SITE
+=========================== */
+.site-logo {
+  position: absolute;
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  opacity: 0.85;
+  transition: opacity 0.4s ease, transform 0.6s ease;
+}
+
+.site-logo img {
+  height: 30px; /* ajuste si besoin */
+  width: auto;
+}
+
+.site-logo:hover {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.page-episodes.time-night .site-logo img {
+  filter: drop-shadow(0 0 6px rgba(180,220,255,0.35));
+}
+
+.page-episodes.time-day .site-logo img {
+  filter: drop-shadow(0 0 4px rgba(255,220,150,0.25));
+}

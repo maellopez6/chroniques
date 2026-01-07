@@ -11,20 +11,28 @@ $currentPage = basename($_SERVER['PHP_SELF']); // e.g. "episodes.php"
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Espace de transmission – Les Chroniques d’un Rêveur</title>
-  <link rel="stylesheet" href="episodes.css?v=1.0">
+  <link rel="stylesheet" href="episodes.css">
 </head>
 
 <body class="page-episodes">
 
   <nav class="main-menu">
-    <ul>
-        <li><a href="index.php">Accueil</a></li>
-        <li><a href="episodes.php">Épisodes</a></li>
-        <li><a href="live.php">Live</a></li>
-        <li><a href="carnet.php">Carnet d’images</a></li>
-        <li><a href="voix.php">Voix du rêveur</a></li>
-        <li><a href="about.php">À propos</a></li>
-    </ul>
+
+  <!-- LOGO -->
+  <a href="index.php" class="site-logo">
+    <img src="images/logo.png" alt="Les Chroniques d’un Rêveur">
+  </a>
+
+  <!-- MENU -->
+  <ul>
+    <li><a href="index.php">Accueil</a></li>
+    <li><a href="episodes.php">Épisodes</a></li>
+    <li><a href="live.php">Live</a></li>
+    <li><a href="carnet.php">Carnet d’images</a></li>
+    <li><a href="voix.php">Voix du rêveur</a></li>
+    <li><a href="about.php">À propos</a></li>
+  </ul>
+
 </nav>
 
 
