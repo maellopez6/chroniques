@@ -59,3 +59,34 @@ function showPoeticPhrase(text) {
 }
 
 document.addEventListener("DOMContentLoaded", initPoeticElements);
+
+// Silence actif : rien ne s'impose
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".archive-card");
+
+  cards.forEach(card => {
+    card.addEventListener("click", () => {
+      card.classList.toggle("open");
+    });
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const items = document.querySelectorAll(".carnet-item");
+  const popup = document.getElementById("notePopup");
+
+  items.forEach(item => {
+    item.addEventListener("click", () => {
+      const note = item.dataset.note;
+      popup.textContent = note;
+      popup.classList.add("show");
+
+      clearTimeout(window._noteTimeout);
+      window._noteTimeout = setTimeout(() => {
+        popup.classList.remove("show");
+      }, 4000);
+    });
+  });
+});
+
+

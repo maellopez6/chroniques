@@ -26,3 +26,129 @@
 .page-episodes.time-day .site-logo img {
   filter: drop-shadow(0 0 4px rgba(255,220,150,0.25));
 }
+
+/* ===========================
+   MENU PRINCIPAL
+=========================== */
+.main-menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 50;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: center;
+    backdrop-filter: blur(6px);
+}
+
+.main-menu ul {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+
+.main-menu a {
+    text-decoration: none;
+    font-family: "Garamond", serif;
+    font-size: 1.05em;
+    color: rgba(255,255,255,0.75);
+    letter-spacing: 0.5px;
+    transition: 0.4s ease;
+    padding-bottom: 4px;
+    border-bottom: 1px solid transparent;
+}
+
+.main-menu a:hover,
+.main-menu a.active {
+    color: #ffd966;
+    border-bottom: 1px solid #ffd966;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* PAGE */
+.page-voix {
+    font-family: 'EB Garamond', serif;
+    background: radial-gradient(ellipse at top, #0a0f1f 0%, #03040a 70%);
+    color: #f1f1f1;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* HEADER */
+.voix-header {
+    text-align: center;
+    padding: 140px 20px 80px;
+}
+
+.voix-header h1 {
+    font-size: 2.6em;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    margin-top: 15px;
+    font-style: italic;
+    opacity: 0.75;
+}
+
+/* SECTIONS */
+.voix-section {
+    max-width: 800px;
+    margin: 0 auto 120px;
+    padding: 0 20px;
+}
+
+.voix-section h2 {
+    font-size: 1.6em;
+    margin-bottom: 40px;
+    border-left: 2px solid rgba(255,255,255,0.2);
+    padding-left: 15px;
+}
+
+/* ARTICLES */
+.voix-article {
+    margin-bottom: 50px;
+    padding: 30px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 20px;
+    backdrop-filter: blur(6px);
+    transition: transform 0.6s ease, background 0.6s ease;
+}
+
+.voix-article:hover {
+    transform: translateY(-6px);
+    background: rgba(255,255,255,0.07);
+}
+
+.voix-article p {
+    margin-bottom: 18px;
+    font-size: 1.05em;
+}
+
+/* META */
+.meta {
+    display: block;
+    font-size: 0.9em;
+    opacity: 0.6;
+    margin-bottom: 15px;
+}
+
+/* RÊVES */
+.voix-article.dream {
+    font-style: italic;
+    text-align: center;
+    background: rgba(255,255,255,0.02);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .voix-header {
+        padding-top: 110px;
+    }
+}

@@ -1,23 +1,21 @@
 <?php
-// Charger les épisodes depuis un fichier JSON
-$episodes = json_decode(file_get_contents('data/episodes.json'), true);
-
-// Pour gérer l'onglet actif dans la navbar
-$currentPage = basename($_SERVER['PHP_SELF']); // e.g. "episodes.php"
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <title>Carnet d’images — Les Chroniques d’un Rêveur</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Les souvenirs du rêve – Les Chroniques d’un Rêveur</title>
-  <link rel="stylesheet" href="episodes.css">
+  <link rel="stylesheet" href="carnet.css?v=1.0">
 </head>
 
-<body class="page-episodes">
+<body class="page-carnet">
 
+  <!-- MENU -->
   <nav class="main-menu">
-
   <!-- LOGO -->
   <a href="index.php" class="site-logo">
     <img src="images/logo.png" alt="Les Chroniques d’un Rêveur">
@@ -32,28 +30,37 @@ $currentPage = basename($_SERVER['PHP_SELF']); // e.g. "episodes.php"
     <li><a href="voix.php">Voix du rêveur</a></li>
     <li><a href="about.php">À propos</a></li>
   </ul>
-
 </nav>
 
-  <!-- Le header principal -->
-  <header class="header">
-    <a href="index.php" class="back-link">← Retour au seuil</a>
-    <h1>Les souvenirs du rêve</h1>
+  <!-- HEADER -->
+  <header class="carnet-header">
+    <h1>Carnet d’images</h1>
+    <p>Souvenirs visuels, fragments de tournage, traces du rêve.</p>
   </header>
 
-  <main class="episodes-grid">
-    <?php foreach ($episodes as $ep): ?>
-      <div class="episode-card">
-        <div class="episode-thumb" style="background-image:url('images/<?= htmlspecialchars($ep['thumb']) ?>')">
-          <div class="overlay-episode">
-            <h2><?= htmlspecialchars($ep['title']) ?></h2>
-            <p><?= htmlspecialchars($ep['quote']) ?></p>
-          </div>
-        </div>
-      </div>
-    <?php endforeach; ?>
+  <!-- GALERIE -->
+  <main class="carnet-gallery">
+
+    <figure class="carnet-item" data-note="La lumière était déjà là.">
+      <img src="images/carnet/img1.jpg" alt="">
+      <figcaption>Polaroid — veille de tournage</figcaption>
+    </figure>
+
+    <figure class="carnet-item" data-note="Un silence entre deux prises.">
+      <img src="images/carnet/img2.jpg" alt="">
+      <figcaption>Décor abandonné</figcaption>
+    </figure>
+
+    <figure class="carnet-item" data-note="Le rêve se construit dans l’attente.">
+      <img src="images/carnet/img3.jpg" alt="">
+      <figcaption>Fragment nocturne</figcaption>
+    </figure>
+
   </main>
 
-  <script src="js/script.js"></script>
+  <!-- NOTE MANUSCRITE -->
+  <div class="note-popup" id="notePopup"></div>
+
+  <script src="js/carnet.js"></script>
 </body>
 </html>

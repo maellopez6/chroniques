@@ -1,23 +1,15 @@
-<?php
-// Charger les épisodes depuis un fichier JSON
-$episodes = json_decode(file_get_contents('data/episodes.json'), true);
-
-// Pour gérer l'onglet actif dans la navbar
-$currentPage = basename($_SERVER['PHP_SELF']); // e.g. "episodes.php"
-?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <title>Espace Live — Les Chroniques d’un Rêveur</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Le présent du rêve – Les Chroniques d’un Rêveur</title>
-  <link rel="stylesheet" href="episodes.css">
+  <link rel="stylesheet" href="live.css">
 </head>
 
-<body class="page-episodes">
+<body class="page-live">
 
- <nav class="main-menu">
-
+  <nav class="main-menu">
   <!-- LOGO -->
   <a href="index.php" class="site-logo">
     <img src="images/logo.png" alt="Les Chroniques d’un Rêveur">
@@ -32,29 +24,75 @@ $currentPage = basename($_SERVER['PHP_SELF']); // e.g. "episodes.php"
     <li><a href="voix.php">Voix du rêveur</a></li>
     <li><a href="about.php">À propos</a></li>
   </ul>
-
 </nav>
 
-
-  <!-- Le header principal -->
-  <header class="header">
-    <a href="index.php" class="back-link">← Retour au seuil</a>
+  <!-- HEADER -->
+  <header class="live-header">
     <h1>Le présent du rêve</h1>
+    <p class="live-subtitle">
+      Ici, le rêve respire au présent.
+    </p>
   </header>
 
-  <main class="episodes-grid">
-    <?php foreach ($episodes as $ep): ?>
-      <div class="episode-card">
-        <div class="episode-thumb" style="background-image:url('images/<?= htmlspecialchars($ep['thumb']) ?>')">
-          <div class="overlay-episode">
-            <h2><?= htmlspecialchars($ep['title']) ?></h2>
-            <p><?= htmlspecialchars($ep['quote']) ?></p>
-          </div>
+  <!-- PLAYER LIVE -->
+  <section class="live-player">
+    <div class="video-wrapper">
+      <!-- YouTube Live (remplace l’ID quand tu veux) -->
+      <iframe 
+        src="https://www.youtube.com/embed/LIVE_VIDEO_ID?autoplay=0&mute=1"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="live-status">
+      <span class="dot"></span>
+      <span>En direct / ou Dernière diffusion</span>
+    </div>
+  </section>
+
+  <!-- CHAT POÉTIQUE -->
+  <section class="live-chat">
+    <h2>Paroles partagées</h2>
+
+    <div class="chat-messages">
+      <p><span>✧</span> La lumière semble écouter.</p>
+      <p><span>✧</span> Ce silence me parle.</p>
+    </div>
+
+    <form class="chat-form">
+      <input type="text" placeholder="Laisser une trace…" disabled>
+    </form>
+
+    <p class="chat-note">
+      Le chat sera activé lors des diffusions.
+    </p>
+  </section>
+
+  <!-- ARCHIVES -->
+  <section class="live-archives">
+    <h2>Moments conservés</h2>
+
+    <div class="archives-grid">
+
+      <div class="archive-card">
+        <img src="images/live1.jpg" alt="">
+        <div class="archive-overlay">
+          <h3>Entretien — Origine du rêve</h3>
         </div>
       </div>
-    <?php endforeach; ?>
-  </main>
 
-  <script src="js/script.js"></script>
+      <div class="archive-card">
+        <img src="images/live2.jpg" alt="">
+        <div class="archive-overlay">
+          <h3>Capsule — La nuit du tournage</h3>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script src="js/live.js"></script>
 </body>
 </html>
