@@ -1,3 +1,23 @@
+/* ===========================
+   RESET & GLOBAL
+=========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.page-voix {
+    font-family: 'EB Garamond', serif;
+    background: radial-gradient(ellipse at top, #0a0f1f 0%, #03040a 70%);
+    color: #f1f1f1;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* ===========================
+   LOGO
+=========================== */
 .site-logo {
   position: absolute;
   left: 30px;
@@ -10,21 +30,13 @@
 }
 
 .site-logo img {
-  height: 30px; /* ajuste si besoin */
+  height: 30px;
   width: auto;
 }
 
 .site-logo:hover {
   opacity: 1;
   transform: translateY(-50%) scale(1.05);
-}
-
-.page-episodes.time-night .site-logo img {
-  filter: drop-shadow(0 0 6px rgba(180,220,255,0.35));
-}
-
-.page-episodes.time-day .site-logo img {
-  filter: drop-shadow(0 0 4px rgba(255,220,150,0.25));
 }
 
 /* ===========================
@@ -64,23 +76,9 @@
     border-bottom: 1px solid #ffd966;
 }
 
-/* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* PAGE */
-.page-voix {
-    font-family: 'EB Garamond', serif;
-    background: radial-gradient(ellipse at top, #0a0f1f 0%, #03040a 70%);
-    color: #f1f1f1;
-    min-height: 100vh;
-    line-height: 1.6;
-}
-
-/* HEADER */
+/* ===========================
+   HEADER
+=========================== */
 .voix-header {
     text-align: center;
     padding: 140px 20px 80px;
@@ -91,64 +89,79 @@
     letter-spacing: 1px;
 }
 
-.subtitle {
+.voix-subtitle {
     margin-top: 15px;
     font-style: italic;
     opacity: 0.75;
 }
 
-/* SECTIONS */
-.voix-section {
-    max-width: 800px;
-    margin: 0 auto 120px;
-    padding: 0 20px;
+/* ===========================
+   GRILLE DES ARTICLES
+=========================== */
+.articles-grid {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 40px 20px;
 }
 
-.voix-section h2 {
-    font-size: 1.6em;
-    margin-bottom: 40px;
-    border-left: 2px solid rgba(255,255,255,0.2);
-    padding-left: 15px;
-}
-
-/* ARTICLES */
-.voix-article {
-    margin-bottom: 50px;
-    padding: 30px;
+/* Carte individuelle */
+.article-card {
+    display: flex;
     background: rgba(255,255,255,0.04);
-    border-radius: 20px;
-    backdrop-filter: blur(6px);
-    transition: transform 0.6s ease, background 0.6s ease;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 600px;
+    transition: transform 0.3s ease, background 0.3s ease;
 }
 
-.voix-article:hover {
-    transform: translateY(-6px);
+.article-card:hover {
+    transform: translateY(-5px);
     background: rgba(255,255,255,0.07);
 }
 
-.voix-article p {
-    margin-bottom: 18px;
-    font-size: 1.05em;
+/* Image de l'article */
+.article-thumb {
+    width: 200px;
+    height: 140px;
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
 }
 
-/* META */
-.meta {
-    display: block;
-    font-size: 0.9em;
-    opacity: 0.6;
-    margin-bottom: 15px;
+/* Contenu texte */
+.article-content {
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-/* RÊVES */
-.voix-article.dream {
-    font-style: italic;
-    text-align: center;
-    background: rgba(255,255,255,0.02);
+.article-content h2 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
 }
 
-/* MOBILE */
+.article-content p {
+    font-size: 1em;
+    opacity: 0.8;
+    line-height: 1.3em;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
 @media (max-width: 768px) {
     .voix-header {
         padding-top: 110px;
+    }
+    .article-card {
+        flex-direction: column;
+        width: 90%;
+    }
+    .article-thumb {
+        width: 100%;
+        height: 180px;
     }
 }

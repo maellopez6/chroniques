@@ -44,18 +44,17 @@ $currentPage = basename($_SERVER['PHP_SELF']); // e.g. "voix.php"
     </p>
   </header>
 
-  <main class="episodes-grid">
+  <main class="articles-grid">
     <?php foreach ($articles as $article): ?>
-      <div class="episode-card">
+      <div class="article-card">
         <!-- Lien vers la page spécifique de l'article -->
         <a href="article.php?id=<?= $article['id'] ?>">
-          <div class="episode-thumb" style="background-image:url('images/articles/<?= htmlspecialchars($article['image']) ?>')">
-            <div class="overlay-episode">
-              <h2><?= htmlspecialchars($article['title']) ?></h2>
-              <p><?= htmlspecialchars($article['excerpt']) ?></p>
-            </div>
-          </div>
+          <div class="article-thumb" style="background-image:url('images/articles/<?= htmlspecialchars($article['image']) ?>')"></div>
         </a>
+        <div class="article-content">
+          <h2><?= htmlspecialchars($article['title']) ?></h2>
+          <p><?= htmlspecialchars($article['excerpt']) ?></p>
+        </div>
       </div>
     <?php endforeach; ?>
   </main>
