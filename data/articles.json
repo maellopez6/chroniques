@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Et si la culture populaire...",
+    "excerpt": "Une réflexion sur la mémoire collective et les récits modernes.",
+    "image": "article1.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Are You Ready Player ?",
+    "excerpt": "Quand le jeu vidéo devient langage et imaginaire.",
+    "image": "article2.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Ce que le cinéma m’a appris à voir",
+    "excerpt": "Le regard, le cadre, le silence.",
+    "image": "article3.jpg"
+  }
+]
