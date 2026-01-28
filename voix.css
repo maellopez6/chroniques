@@ -1,6 +1,4 @@
-/* ===========================
-   RESET & GLOBAL
-=========================== */
+/* RESET & GLOBAL */
 * {
     margin: 0;
     padding: 0;
@@ -15,9 +13,7 @@
     line-height: 1.6;
 }
 
-/* ===========================
-   LOGO
-=========================== */
+/* LOGO */
 .site-logo {
   position: absolute;
   left: 30px;
@@ -39,9 +35,7 @@
   transform: translateY(-50%) scale(1.05);
 }
 
-/* ===========================
-   MENU PRINCIPAL
-=========================== */
+/* MENU */
 .main-menu {
     position: fixed;
     top: 0;
@@ -76,9 +70,7 @@
     border-bottom: 1px solid #ffd966;
 }
 
-/* ===========================
-   HEADER
-=========================== */
+/* HEADER */
 .voix-header {
     text-align: center;
     padding: 140px 20px 80px;
@@ -95,9 +87,7 @@
     opacity: 0.75;
 }
 
-/* ===========================
-   GRILLE DES ARTICLES
-=========================== */
+/* GRILLE DES ARTICLES */
 .articles-grid {
     display: flex;
     gap: 30px;
@@ -106,7 +96,7 @@
     padding: 40px 20px;
 }
 
-/* Carte individuelle */
+/* CARTE INDIVIDUELLE */
 .article-card {
     display: flex;
     background: rgba(255,255,255,0.04);
@@ -121,7 +111,7 @@
     background: rgba(255,255,255,0.07);
 }
 
-/* Image de l'article */
+/* IMAGE DE L'ARTICLE */
 .article-thumb {
     width: 200px;
     height: 140px;
@@ -130,7 +120,7 @@
     flex-shrink: 0;
 }
 
-/* Contenu texte */
+/* CONTENU TEXTE */
 .article-content {
     padding: 15px 20px;
     display: flex;
@@ -149,9 +139,7 @@
     line-height: 1.3em;
 }
 
-/* ===========================
-   RESPONSIVE
-=========================== */
+/* RESPONSIVE */
 @media (max-width: 768px) {
     .voix-header {
         padding-top: 110px;

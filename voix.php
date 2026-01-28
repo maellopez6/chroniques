@@ -3,7 +3,7 @@
 $articles = json_decode(file_get_contents('data/articles.json'), true);
 
 // Pour gérer l'onglet actif dans la navbar
-$currentPage = basename($_SERVER['PHP_SELF']); // e.g. "voix.php"
+$currentPage = basename($_SERVER['PHP_SELF']); 
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -18,13 +18,10 @@ $currentPage = basename($_SERVER['PHP_SELF']); // e.g. "voix.php"
 <body class="page-voix">
 
   <nav class="main-menu">
-
-    <!-- LOGO -->
     <a href="index.php" class="site-logo">
       <img src="images/logo.png" alt="Les Chroniques d’un Rêveur">
     </a>
 
-    <!-- MENU -->
     <ul>
       <li><a href="index.php">Accueil</a></li>
       <li><a href="episodes.php">Épisodes</a></li>
@@ -33,10 +30,8 @@ $currentPage = basename($_SERVER['PHP_SELF']); // e.g. "voix.php"
       <li><a href="voix.php" class="active">Voix du rêveur</a></li>
       <li><a href="about.php">À propos</a></li>
     </ul>
-
   </nav>
 
-  <!-- Le header principal -->
   <header class="voix-header">
     <h1>Espace de transmission</h1>
     <p class="voix-subtitle">
@@ -47,10 +42,7 @@ $currentPage = basename($_SERVER['PHP_SELF']); // e.g. "voix.php"
   <main class="articles-grid">
     <?php foreach ($articles as $article): ?>
       <div class="article-card">
-        <!-- Image de l'article -->
         <div class="article-thumb" style="background-image: url('images/articles/<?= htmlspecialchars($article['image']) ?>')"></div>
-
-        <!-- Contenu texte -->
         <div class="article-content">
           <h2><?= htmlspecialchars($article['title']) ?></h2>
           <p><?= htmlspecialchars($article['excerpt']) ?></p>
