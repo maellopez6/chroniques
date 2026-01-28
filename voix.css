@@ -1,19 +1,25 @@
-/* RESET & GLOBAL */
+/* ===========================
+   RESET & GLOBAL
+=========================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.page-voix {
+/* Corriger conflits avec style.css */
+body.page-voix {
+    height: auto !important;
+    overflow: visible !important;
     font-family: 'EB Garamond', serif;
     background: radial-gradient(ellipse at top, #0a0f1f 0%, #03040a 70%);
     color: #f1f1f1;
-    min-height: 100vh;
     line-height: 1.6;
 }
 
-/* LOGO */
+/* ===========================
+   LOGO
+=========================== */
 .site-logo {
   position: absolute;
   left: 30px;
@@ -26,7 +32,7 @@
 }
 
 .site-logo img {
-  height: 30px;
+  height: 38px;
   width: auto;
 }
 
@@ -35,7 +41,9 @@
   transform: translateY(-50%) scale(1.05);
 }
 
-/* MENU */
+/* ===========================
+   MENU PRINCIPAL
+=========================== */
 .main-menu {
     position: fixed;
     top: 0;
@@ -70,7 +78,9 @@
     border-bottom: 1px solid #ffd966;
 }
 
-/* HEADER */
+/* ===========================
+   HEADER
+=========================== */
 .voix-header {
     text-align: center;
     padding: 140px 20px 80px;
@@ -87,16 +97,18 @@
     opacity: 0.75;
 }
 
-/* GRILLE DES ARTICLES */
+/* ===========================
+   GRILLE DES ARTICLES
+=========================== */
 .articles-grid {
     display: flex;
-    gap: 30px;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 30px;
     padding: 40px 20px;
 }
 
-/* CARTE INDIVIDUELLE */
+/* Carte individuelle */
 .article-card {
     display: flex;
     background: rgba(255,255,255,0.04);
@@ -111,7 +123,7 @@
     background: rgba(255,255,255,0.07);
 }
 
-/* IMAGE DE L'ARTICLE */
+/* Image de l'article */
 .article-thumb {
     width: 200px;
     height: 140px;
@@ -120,7 +132,7 @@
     flex-shrink: 0;
 }
 
-/* CONTENU TEXTE */
+/* Contenu texte */
 .article-content {
     padding: 15px 20px;
     display: flex;
@@ -139,7 +151,9 @@
     line-height: 1.3em;
 }
 
-/* RESPONSIVE */
+/* ===========================
+   RESPONSIVE
+=========================== */
 @media (max-width: 768px) {
     .voix-header {
         padding-top: 110px;
