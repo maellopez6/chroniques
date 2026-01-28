@@ -52,7 +52,7 @@ $currentPage = basename($_SERVER['PHP_SELF']); // e.g. "voix.php"
           <div class="episode-thumb" style="background-image:url('images/articles/<?= htmlspecialchars($article['image']) ?>')">
             <div class="overlay-episode">
               <h2><?= htmlspecialchars($article['title']) ?></h2>
-              <p><?= htmlspecialchars($article['summary']) ?></p>
+              <p><?= htmlspecialchars($article['excerpt']) ?></p>
             </div>
           </div>
         </a>
