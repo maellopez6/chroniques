@@ -1,0 +1,97 @@
+/* ===========================
+   PAGE ARTICLE — IMMERSIVE
+=========================== */
+
+.page-article {
+  background: radial-gradient(ellipse at top, #0b0b0b 0%, #050505 70%);
+  color: #f5f5f5;
+  min-height: 100vh;
+  padding-top: 110px;
+  animation: fadeIn 2s ease forwards;
+}
+
+/* HEADER */
+.article-header {
+  max-width: 800px;
+  margin: 0 auto 80px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.article-header h1 {
+  font-family: "Canela", serif;
+  font-size: 2.6em;
+  line-height: 1.25em;
+  margin-bottom: 25px;
+}
+
+.article-intro {
+  font-style: italic;
+  color: rgba(255,255,255,0.75);
+  font-size: 1.1em;
+  line-height: 1.6em;
+  text-align: center;
+}
+
+.citation-intro {
+    text-align: center;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 30px;
+  text-decoration: none;
+  color: rgba(255,255,255,0.6);
+  transition: color 0.4s ease;
+}
+.back-link:hover {
+  color: #ffd966;
+}
+
+/* CONTENU */
+.article-content {
+  max-width: 720px;
+  margin: 0 auto 120px;
+  padding: 0 20px;
+}
+
+.article-content p {
+  font-family: "Garamond", serif;
+  font-size: 1.15em;
+  line-height: 1.9em;
+  margin-bottom: 40px;
+  color: rgba(255,255,255,0.9);
+}
+
+/* IMAGES */
+.article-image {
+  margin: 80px 0;
+  text-align: center;
+}
+
+.article-image img {
+  width: 100%;
+  max-width: 640px;
+  border-radius: 14px;
+  filter: grayscale(100%) contrast(1.05);
+  transition: filter 0.6s ease, transform 0.6s ease;
+}
+
+.article-image img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.01);
+}
+
+.article-image figcaption {
+  margin-top: 16px;
+  font-family: "Garamond", serif;
+  font-style: italic;
+  font-size: 0.95em;
+  color: rgba(255,255,255,0.6);
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

@@ -151,6 +151,13 @@ body.page-voix {
     line-height: 1.3em;
 }
 
+.article-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+
 /* ===========================
    RESPONSIVE
 =========================== */
