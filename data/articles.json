@@ -1,21 +1,23 @@
 [
-   {
+  {
     "id": 1,
     "title": "Quand la pop culture m’aide à parler des choses sérieuses",
-    "excerpt": "Il n’y a pas de hiérarchie dans la beauté. Un dessin animé peut être une prière...",
-    "image": "article1.jpg"
+    "excerpt": "Il n’y a pas de hiérarchie dans la beauté. Un dessin animé peut être une prière. Un jeu vidéo peut être une confession. Un manga peut être un miroir. Parce que la culture populaire n’est jamais seulement du divertissement.",
+    "image": "images/articles/article1.jpg",
+    "link": "https://quentinjarguel.wixsite.com/quentin-jarguel/post/quand-la-pop-culture-m-aide-%C3%A0-parler-des-choses-s%C3%A9rieuses"
   },
   {
     "id": 2,
     "title": "Are You Ready Player ?",
     "excerpt": "Quand le jeu vidéo devient langage et imaginaire.",
-    "image": "article2.jpg"
+    "image": "images/articles/article2.jpg",
+    "link": "#"
   },
   {
     "id": 3,
     "title": "Ce que le cinéma m’a appris à voir",
     "excerpt": "Le regard, le cadre, le silence.",
-    "image": "article3.jpg"
+    "image": "images/articles/article3.jpg",
+    "link": "#"
   }
-  
 ]

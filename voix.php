@@ -47,15 +47,23 @@ $currentPage = basename($_SERVER['PHP_SELF']); // e.g. "voix.php"
   <!-- GRILLE DES ARTICLES -->
   <main class="articles-grid">
     <?php foreach ($articles as $article): ?>
-      <div class="article-card">
+      
+      <!-- Carte cliquable -->
+      <a href="<?= htmlspecialchars($article['link']) ?>" target="_blank" class="article-card">
+
         <!-- Image -->
-        <div class="article-thumb" style="background-image: url('images/articles/<?= htmlspecialchars($article['image']) ?>')"></div>
+        <div class="article-thumb"
+             style="background-image: url('<?= htmlspecialchars($article['image']) ?>')">
+        </div>
+
         <!-- Texte -->
         <div class="article-content">
           <h2><?= htmlspecialchars($article['title']) ?></h2>
           <p><?= htmlspecialchars($article['excerpt']) ?></p>
         </div>
-      </div>
+
+      </a>
+
     <?php endforeach; ?>
   </main>
 
