@@ -1,22 +1,20 @@
 <?php
 // Charger les articles depuis un fichier JSON
 $articles = json_decode(file_get_contents('data/articles.json'), true);
-
-// Pour gérer l'onglet actif dans la navbar
-$currentPage = basename($_SERVER['PHP_SELF']); // e.g. "voix.php"
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Espace de transmission – Les Chroniques d’un Rêveur</title>
-  
+
   <!-- Style global -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- Style spécifique à la page -->
-  <link rel="stylesheet" href="voix.css?v=3">
+  <!-- Style spécifique -->
+  <link rel="stylesheet" href="voix.css?v=4">
 </head>
 
 <body class="page-voix">
@@ -26,6 +24,7 @@ $currentPage = basename($_SERVER['PHP_SELF']); // e.g. "voix.php"
     <a href="index.php" class="site-logo">
       <img src="images/logo.png" alt="Les Chroniques d’un Rêveur">
     </a>
+
     <ul>
       <li><a href="index.php">Accueil</a></li>
       <li><a href="episodes.php">Épisodes</a></li>
@@ -48,12 +47,12 @@ $currentPage = basename($_SERVER['PHP_SELF']); // e.g. "voix.php"
   <main class="articles-grid">
     <?php foreach ($articles as $article): ?>
       
-      <!-- Carte cliquable -->
-      <a href="<?= htmlspecialchars($article['link']) ?>" target="_blank" class="article-card">
+      <!-- Lien vers l’article Wix -->
+      <a href="<?= htmlspecialchars($article['url']) ?>" target="_blank" class="article-card">
 
         <!-- Image -->
         <div class="article-thumb"
-             style="background-image: url('<?= htmlspecialchars($article['image']) ?>')">
+             style="background-image: url('images/articles/<?= htmlspecialchars($article['image']) ?>')">
         </div>
 
         <!-- Texte -->
@@ -67,6 +66,5 @@ $currentPage = basename($_SERVER['PHP_SELF']); // e.g. "voix.php"
     <?php endforeach; ?>
   </main>
 
-  <script src="js/script.js"></script>
 </body>
 </html>
