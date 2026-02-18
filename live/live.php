@@ -4,27 +4,30 @@
   <meta charset="UTF-8">
   <title>Espace Live — Les Chroniques d’un Rêveur</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="live.css">
+
+  <!-- Twitch Player SDK -->
+  <script src="https://player.twitch.tv/js/embed/v1.js"></script>
 </head>
 
 <body class="page-live">
 
+  <!-- NAVIGATION -->
   <nav class="main-menu">
-  <!-- LOGO -->
-  <a href="index.php" class="site-logo">
-    <img src="images/logo.png" alt="Les Chroniques d’un Rêveur">
-  </a>
+    <a href="index.php" class="site-logo">
+      <img src="images/logo.png" alt="Les Chroniques d’un Rêveur">
+    </a>
 
-  <!-- MENU -->
-  <ul>
-    <li><a href="index.php">Accueil</a></li>
-    <li><a href="episodes.php">Épisodes</a></li>
-    <li><a href="live.php">Live</a></li>
-    <li><a href="carnet.php">Carnet d’images</a></li>
-    <li><a href="voix.php">Voix du rêveur</a></li>
-    <li><a href="about.php">À propos</a></li>
-  </ul>
-</nav>
+    <ul>
+      <li><a href="index.php">Accueil</a></li>
+      <li><a href="episodes.php">Épisodes</a></li>
+      <li><a href="live.php">Live</a></li>
+      <li><a href="carnet.php">Carnet d’images</a></li>
+      <li><a href="voix.php">Voix du rêveur</a></li>
+      <li><a href="about.php">À propos</a></li>
+    </ul>
+  </nav>
 
   <!-- HEADER -->
   <header class="live-header">
@@ -36,20 +39,22 @@
 
   <!-- PLAYER LIVE -->
   <section class="live-player">
+
     <div class="video-wrapper">
-      <!-- YouTube Live (remplace l’ID quand tu veux) -->
-      <iframe 
-        src="https://www.youtube.com/embed/LIVE_VIDEO_ID?autoplay=0&mute=1"
-        frameborder="0"
-        allow="autoplay; encrypted-media"
-        allowfullscreen>
-      </iframe>
+      <div id="twitch-player"></div>
     </div>
 
     <div class="live-status">
-      <span class="dot"></span>
-      <span>En direct / ou Dernière diffusion</span>
+      <span class="dot" id="liveDot"></span>
+      <span id="liveText">Vérification du live...</span>
     </div>
+
+  </section>
+
+  <!-- INFOS STREAM DYNAMIQUES -->
+  <section class="live-details">
+    <h2 id="streamTitle"></h2>
+    <p id="streamCategory"></p>
   </section>
 
   <!-- CHAT POÉTIQUE -->
@@ -66,7 +71,7 @@
     </form>
 
     <p class="chat-note">
-      Le chat sera activé lors des diffusions.
+      Le chat Twitch apparaîtra lors des diffusions.
     </p>
   </section>
 
@@ -93,6 +98,8 @@
     </div>
   </section>
 
+  <!-- SCRIPT LIVE -->
   <script src="js/live.js"></script>
+
 </body>
 </html>

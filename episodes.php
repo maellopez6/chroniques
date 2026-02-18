@@ -42,7 +42,7 @@ if ($forced) {
   <ul>
     <li><a href="index.php">Accueil</a></li>
     <li><a href="episodes.php">Épisodes</a></li>
-    <li><a href="live.php">Live</a></li>
+    <li><a href="live/live.php">Live</a></li>
     <li><a href="carnet.php">Carnet d’images</a></li>
     <li><a href="voix.php">Voix du rêveur</a></li>
     <li><a href="about.php">À propos</a></li>
